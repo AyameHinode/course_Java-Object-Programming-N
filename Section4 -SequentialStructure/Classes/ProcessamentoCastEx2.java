@@ -1,3 +1,5 @@
+package Classes;
+
 public class ProcessamentoCastEx2 {
 
     public static void main(String[] vetor){

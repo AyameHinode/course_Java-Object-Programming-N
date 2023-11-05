@@ -1,3 +1,5 @@
+package Classes;
+
 public class ProcessamentoCastEx1 {
 
     static public void main(String... args){

@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.Locale;
 
 public class Operadores {
