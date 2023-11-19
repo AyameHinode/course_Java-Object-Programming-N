@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.Date;
 
-class LocacaoServiceTest {
+public class LocacaoServiceTest {
 
     @Test
     public void primeiroTeste() {
@@ -22,7 +22,7 @@ class LocacaoServiceTest {
         Locacao locacao = locacaoService.alugarFilme(user, filme);
 
         //verificacao
-        Assert.assertTrue(locacao.getValor() == 10.50);
+        Assert.assertEquals(10.50, locacao.getValor(), 0.01);
         Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
         Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(),
                 DataUtils.obterDataComDiferencaDias(1)));
