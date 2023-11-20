@@ -3,6 +3,8 @@ package br.ce.wcaquino.servicos;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
+import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
+import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.utils.DataUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
@@ -40,7 +42,7 @@ public class LocacaoServiceTest {
 
     }
 
-    @Test (expected = Exception.class)
+    @Test (expected = FilmeSemEstoqueException.class)
     public void testeLocacaoFilmeSemEstoqueModoElegante() throws Exception {
         //cenario
         LocacaoService locacaoService = new LocacaoService();
@@ -48,10 +50,42 @@ public class LocacaoServiceTest {
         Filme filme = new Filme("O gato de botas", 0, 10.50);
 
         //acao
-        Locacao locacao = locacaoService.alugarFilme(user, filme);
+        Locacao locacao = locacaoService.alugarFilme(user, filme); //O codigo para aqui
     }
 
     @Test
+    public void testeUsuarioVazio() throws Exception {
+        //cenario
+        LocacaoService servico = new LocacaoService();
+        Filme filme = new Filme("Harry Potter", 5, 20.0);
+
+        //acao
+        try {
+            servico.alugarFilme(null, filme);
+            Assert.fail();
+        } catch (LocadoraException erro) {
+            Assert.assertThat(erro.getMessage(), CoreMatchers.is("Usuario vazio"));
+        }
+
+        //O codigo pode continuar
+
+    }
+
+    @Test
+    public void testeFilmeVazio() throws FilmeSemEstoqueException, LocadoraException {
+        //cenario
+        LocacaoService service = new LocacaoService();
+        Usuario usuario = new Usuario("User 1");
+
+        exceptionExpected.expect(LocadoraException.class);
+        exceptionExpected.expectMessage("Filme vazio");
+
+        //acao
+        service.alugarFilme(usuario, null); //O codigo para aqui
+
+    }
+
+    /* @Test
     public void testeLocacaoFilmeSemEstoqueModoRobusto() {
         //cenario
         LocacaoService locacaoService = new LocacaoService();
@@ -80,6 +114,6 @@ public class LocacaoServiceTest {
         //acao
         Locacao locacao = locacaoService.alugarFilme(user, filme);
 
-    }
+    }*/
   
 }
