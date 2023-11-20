@@ -7,9 +7,7 @@ import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.utils.DataUtils;
 import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 
@@ -19,11 +17,34 @@ import static org.junit.Assert.*;
 
 public class LocacaoServiceTest {
 
+    LocacaoService locacaoService;
+
     @Rule
     public ErrorCollector errorCollector = new ErrorCollector();
 
     @Rule
     public ExpectedException exceptionExpected = ExpectedException.none();
+
+    @Before
+    public void setup() {
+        System.out.println("Before Method");
+        locacaoService = new LocacaoService();
+    }
+
+    @After
+    public void tearDown(){
+        System.out.println("After Method");
+    }
+
+    @BeforeClass
+    public static void setupClass() {
+        System.out.println("Before Class");
+    }
+
+    @AfterClass
+    public static void tearDownClass(){
+        System.out.println("After Class");
+    }
 
     @Test
     public void primeiroTeste() throws Exception {
@@ -44,8 +65,11 @@ public class LocacaoServiceTest {
 
     @Test (expected = FilmeSemEstoqueException.class)
     public void testeLocacaoFilmeSemEstoqueModoElegante() throws Exception {
+
+        System.out.println("Forma Elegante");
+
         //cenario
-        LocacaoService locacaoService = new LocacaoService();
+
         Usuario user = new Usuario("Ayame");
         Filme filme = new Filme("O gato de botas", 0, 10.50);
 
@@ -55,6 +79,9 @@ public class LocacaoServiceTest {
 
     @Test
     public void testeUsuarioVazio() throws Exception {
+
+        System.out.println("Forma Robusta");
+
         //cenario
         LocacaoService servico = new LocacaoService();
         Filme filme = new Filme("Harry Potter", 5, 20.0);
@@ -73,6 +100,9 @@ public class LocacaoServiceTest {
 
     @Test
     public void testeFilmeVazio() throws FilmeSemEstoqueException, LocadoraException {
+
+        System.out.println("Forma Nova");
+
         //cenario
         LocacaoService service = new LocacaoService();
         Usuario usuario = new Usuario("User 1");
@@ -84,36 +114,5 @@ public class LocacaoServiceTest {
         service.alugarFilme(usuario, null); //O codigo para aqui
 
     }
-
-    /* @Test
-    public void testeLocacaoFilmeSemEstoqueModoRobusto() {
-        //cenario
-        LocacaoService locacaoService = new LocacaoService();
-        Usuario user = new Usuario("Ayame");
-        Filme filme = new Filme("O gato de botas", 0, 10.50);
-
-        //acao
-        try {
-            Locacao locacao = locacaoService.alugarFilme(user, filme);
-            Assert.fail("Deveria ter sido lançada uma exceção");
-        } catch (Exception erro) {
-            assertThat(erro.getMessage(), CoreMatchers.is("Filme sem estoque"));
-        }
-    }
-
-    @Test
-    public void testeLocacaoFilmeSemEstoqueModoNova() throws Exception {
-        //cenario
-        LocacaoService locacaoService = new LocacaoService();
-        Usuario user = new Usuario("Ayame");
-        Filme filme = new Filme("O gato de botas", 0, 10.50);
-
-        exceptionExpected.expect(Exception.class);
-        exceptionExpected.expectMessage("Filme sem estoque");
-
-        //acao
-        Locacao locacao = locacaoService.alugarFilme(user, filme);
-
-    }*/
   
 }
