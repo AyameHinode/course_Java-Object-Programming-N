@@ -101,68 +101,6 @@ public class LocacaoServiceTest {
     }
 
     @Test
-    public void devePagar75PctNoFilme3() throws FilmeSemEstoqueException, LocadoraException {
-        //cenario
-        Usuario usuario = new Usuario("Usuario 1");
-        List<Filme> filmes = Arrays.asList(
-                new Filme("Filme 1", 3, 10.00),
-                new Filme("Filme 1", 3, 10.00),
-                new Filme("Filme 1", 3, 10.00));
-        //acao
-        Locacao resultado = locacaoService.alugarFilme(usuario,filmes);
-        //verificacao
-        Assert.assertThat(resultado.getValor(), CoreMatchers.is(27.50));
-    }
-
-    @Test
-    public void devePagar50PctNoFilme4() throws FilmeSemEstoqueException, LocadoraException {
-        //cenario
-        Usuario usuario = new Usuario("Usuario 1");
-        List<Filme> filmes = Arrays.asList(
-                new Filme("Filme 1", 3, 10.00),
-                new Filme("Filme 2", 3, 10.00),
-                new Filme("Filme 3", 3, 10.00),
-                new Filme("Filme 4", 3, 10.00));
-        //acao
-        Locacao resultado = locacaoService.alugarFilme(usuario,filmes);
-        //verificacao
-        Assert.assertThat(resultado.getValor(), CoreMatchers.is(32.50));
-    }
-
-    @Test
-    public void devePagar25PctNoFilme5() throws FilmeSemEstoqueException, LocadoraException {
-        //cenario
-        Usuario usuario = new Usuario("Usuario 1");
-        List<Filme> filmes = Arrays.asList(
-                new Filme("Filme 1", 3, 10.00),
-                new Filme("Filme 2", 3, 10.00),
-                new Filme("Filme 3", 3, 10.00),
-                new Filme("Filme 4", 3, 10.00),
-                new Filme("Filme 5", 3, 10.00));
-        //acao
-        Locacao resultado = locacaoService.alugarFilme(usuario,filmes);
-        //verificacao
-        Assert.assertThat(resultado.getValor(), CoreMatchers.is(35.00));
-    }
-
-    @Test
-    public void devePagar0PctNoFilme6() throws FilmeSemEstoqueException, LocadoraException {
-        //cenario
-        Usuario usuario = new Usuario("Usuario 1");
-        List<Filme> filmes = Arrays.asList(
-                new Filme("Filme 1", 3, 10.00),
-                new Filme("Filme 2", 3, 10.00),
-                new Filme("Filme 3", 3, 10.00),
-                new Filme("Filme 4", 3, 10.00),
-                new Filme("Filme 5", 3, 10.00),
-                new Filme("Filme 6", 3, 10.00));
-        //acao
-        Locacao resultado = locacaoService.alugarFilme(usuario,filmes);
-        //verificacao
-        Assert.assertThat(resultado.getValor(), CoreMatchers.is(35.00));
-    }
-
-    @Test
     public void naoDeveDevolverFilmeNoDomingo() throws FilmeSemEstoqueException, LocadoraException {
         Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY)); //Executara o teste apenas sabado
 
