@@ -17,8 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static matchers.MatchersProprios.caiEm;
-import static matchers.MatchersProprios.caiEmUmaSegunda;
+import static matchers.MatchersProprios.*;
 
 public class LocacaoServiceTest {
 
@@ -46,12 +45,14 @@ public class LocacaoServiceTest {
 
         //verificacao
         errorCollector.checkThat((locacao.getValor()), CoreMatchers.is(CoreMatchers.equalTo(10.50)));
-        errorCollector.checkThat(
-                DataUtils.isMesmaData(locacao.getDataLocacao(),
-                        new Date()), CoreMatchers.is(true));
-        errorCollector.checkThat(
-                DataUtils.isMesmaData(locacao.getDataRetorno(),
-                        DataUtils.obterDataComDiferencaDias(1)), CoreMatchers.is(true));
+        //errorCollector.checkThat(
+                //DataUtils.isMesmaData(locacao.getDataLocacao(),
+                        //new Date()), CoreMatchers.is(true));
+        //errorCollector.checkThat(
+                //DataUtils.isMesmaData(locacao.getDataRetorno(),
+                        //DataUtils.obterDataComDiferencaDias(1)), CoreMatchers.is(true));
+        errorCollector.checkThat(locacao.getDataRetorno(), hojeComDiferencaDias(1));
+        errorCollector.checkThat(locacao.getDataLocacao(), hoje());
 
     }
 
