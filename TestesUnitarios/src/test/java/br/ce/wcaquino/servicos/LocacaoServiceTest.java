@@ -6,6 +6,7 @@ import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.utils.DataUtils;
+import matchers.DiaSemanaMatcher;
 import org.hamcrest.CoreMatchers;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
@@ -15,6 +16,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import static matchers.MatchersProprios.caiEm;
+import static matchers.MatchersProprios.caiEmUmaSegunda;
 
 public class LocacaoServiceTest {
 
@@ -101,7 +105,7 @@ public class LocacaoServiceTest {
     }
 
     @Test
-    public void naoDeveDevolverFilmeNoDomingo() throws FilmeSemEstoqueException, LocadoraException {
+    public void deveDevolverNaSegundaAoAlugarNoSabado() throws FilmeSemEstoqueException, LocadoraException {
         Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY)); //Executara o teste apenas sabado
 
         //cenario
@@ -114,6 +118,10 @@ public class LocacaoServiceTest {
         //verificacao
         boolean segunda = DataUtils.verificarDiaSemana(retorno.getDataRetorno(), Calendar.MONDAY);
         Assert.assertTrue(segunda);
+
+//        Assert.assertThat(retorno.getDataRetorno(), new DiaSemanaMatcher(Calendar.MONDAY));
+//        Assert.assertThat(retorno.getDataRetorno(), caiEm(Calendar.MONDAY));
+        Assert.assertThat(retorno.getDataRetorno(), caiEmUmaSegunda());
     }
   
 }
