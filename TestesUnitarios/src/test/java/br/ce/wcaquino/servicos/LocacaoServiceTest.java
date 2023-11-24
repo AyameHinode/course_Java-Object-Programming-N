@@ -6,7 +6,6 @@ import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.utils.DataUtils;
-import matchers.DiaSemanaMatcher;
 import org.hamcrest.CoreMatchers;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
@@ -17,7 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static matchers.MatchersProprios.*;
+import static br.ce.wcaquino.matchers.MatchersProprios.*;
 
 public class LocacaoServiceTest {
 
