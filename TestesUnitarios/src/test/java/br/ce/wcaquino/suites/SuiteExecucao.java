@@ -5,6 +5,7 @@ import br.ce.wcaquino.servicos.CalculoValorLocacaoTest;
 import br.ce.wcaquino.servicos.LocacaoServiceTest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -22,7 +23,7 @@ public class SuiteExecucao {
     }
 
     @AfterClass
-    public static void depoisDeTudo{
+    public static void depoisDeTudo(){
         System.out.println("Finalizando execução de todos os testes");
     }
 
