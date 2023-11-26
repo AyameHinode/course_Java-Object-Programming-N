@@ -1,5 +1,7 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.builders.FilmeBuilder;
+import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -32,13 +34,13 @@ public class CalculoValorLocacaoTest {
         locacaoService = new LocacaoService();
     }
 
-    private static Filme filme1 = new Filme("Filme 1", 3, 10.00);
-    private static Filme filme2 = new Filme("Filme 2", 3, 10.00);
-    private static Filme filme3 = new Filme("Filme 3", 3, 10.00);
-    private static Filme filme4 = new Filme("Filme 4", 3, 10.00);
-    private static Filme filme5 = new Filme("Filme 5", 3, 10.00);
-    private static Filme filme6 = new Filme("Filme 6", 3, 10.00);
-    private static Filme filme7 = new Filme("Filme 7", 3, 10.00);
+    private static Filme filme1 = FilmeBuilder.criandoUmFilme().agora();
+    private static Filme filme2 = FilmeBuilder.criandoUmFilme().agora();
+    private static Filme filme3 = FilmeBuilder.criandoUmFilme().agora();
+    private static Filme filme4 = FilmeBuilder.criandoUmFilme().agora();
+    private static Filme filme5 = FilmeBuilder.criandoUmFilme().agora();
+    private static Filme filme6 = FilmeBuilder.criandoUmFilme().agora();
+    private static Filme filme7 = FilmeBuilder.criandoUmFilme().agora();
 
     @Parameterized.Parameters(name="{2}}")
     public static Collection<Object[]> getParametros(){
@@ -55,7 +57,7 @@ public class CalculoValorLocacaoTest {
     @Test
     public void deveCalcularValorLocacaoConsiderandoDescontos() throws FilmeSemEstoqueException, LocadoraException {
         //cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = UsuarioBuilder.criandoUsuarioFake().agora();
 
         //acao
         Locacao resultado = locacaoService.alugarFilme(usuario, filmes);

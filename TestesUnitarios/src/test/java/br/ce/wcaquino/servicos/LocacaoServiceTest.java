@@ -1,5 +1,7 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.builders.FilmeBuilder;
+import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -36,14 +38,14 @@ public class LocacaoServiceTest {
     @Test
     public void deveAlugarFilmeComSucesso() throws Exception {
         //cenario
-        Usuario user = new Usuario("Ayame");
-        List<Filme> filmes = Arrays.asList(new Filme("O gato de botas", 1, 10.50));
+        Usuario user = UsuarioBuilder.criandoUsuarioFake().agora();
+        List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().filmeComValorLocacao(5.0).agora());
 
         //acao
         Locacao locacao = locacaoService.alugarFilme(user, filmes);
 
         //verificacao
-        errorCollector.checkThat((locacao.getValor()), CoreMatchers.is(CoreMatchers.equalTo(10.50)));
+        errorCollector.checkThat((locacao.getValor()), CoreMatchers.is(CoreMatchers.equalTo(5.00)));
         //errorCollector.checkThat(
                 //DataUtils.isMesmaData(locacao.getDataLocacao(),
                         //new Date()), CoreMatchers.is(true));
@@ -61,8 +63,8 @@ public class LocacaoServiceTest {
         System.out.println("Forma Elegante");
 
         //cenario
-        Usuario user = new Usuario("Ayame");
-        List<Filme> filmes = Arrays.asList(new Filme("O gato de botas", 0, 10.50));
+        Usuario user = UsuarioBuilder.criandoUsuarioFake().agora();
+        List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().semEstoque().agora());
 
         //acao
         Locacao locacao = locacaoService.alugarFilme(user, filmes); //O codigo para aqui
@@ -74,7 +76,7 @@ public class LocacaoServiceTest {
         System.out.println("Forma Robusta");
 
         //cenario
-        List<Filme> filmes = Arrays.asList(new Filme("Harry Potter", 5, 20.0));
+        List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().agora());
 
         //acao
         try {
@@ -94,7 +96,7 @@ public class LocacaoServiceTest {
         System.out.println("Forma Nova");
 
         //cenario
-        Usuario usuario = new Usuario("User 1");
+        Usuario usuario = UsuarioBuilder.criandoUsuarioFake().agora();
 
         exceptionExpected.expect(LocadoraException.class);
         exceptionExpected.expectMessage("Filme vazio");
@@ -109,8 +111,8 @@ public class LocacaoServiceTest {
         Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY)); //Executara o teste apenas sabado
 
         //cenario
-        Usuario usuario = new Usuario("Usuario 1");
-        List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 1, 5.00));
+        Usuario usuario = UsuarioBuilder.criandoUsuarioFake().agora();
+        List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().agora());
 
         //acao
         Locacao retorno = locacaoService.alugarFilme(usuario, filmes);
