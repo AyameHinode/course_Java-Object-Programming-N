@@ -8,6 +8,7 @@ import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.utils.DataUtils;
+import buildermaster.BuilderMaster;
 import org.hamcrest.CoreMatchers;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
@@ -124,6 +125,10 @@ public class LocacaoServiceTest {
 //        Assert.assertThat(retorno.getDataRetorno(), new DiaSemanaMatcher(Calendar.MONDAY));
 //        Assert.assertThat(retorno.getDataRetorno(), caiEm(Calendar.MONDAY));
         Assert.assertThat(retorno.getDataRetorno(), caiEmUmaSegunda());
+    }
+
+    public static void main(String[] args){
+        new BuilderMaster().gerarCodigoClasse(Locacao.class);
     }
   
 }
