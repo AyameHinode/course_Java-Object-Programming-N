@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -34,7 +35,7 @@ public class CalculoValorLocacaoTest {
     @Before
     public void setup(){
         locacaoService = new LocacaoService();
-        LocacaoDAO locacaoDAO = new LocacaoDAOFake();
+        LocacaoDAO locacaoDAO = Mockito.mock(LocacaoDAO.class);
         locacaoService.setLocacaoDAO(locacaoDAO);
     }
 
