@@ -19,6 +19,7 @@ import org.junit.Test;
 public class LocacaoService {
 
 	private LocacaoDAO locacaoDAO;
+	private SPCService spcService;
 
 	public Locacao alugarFilme(Usuario usuario, List<Filme> filmes) throws LocadoraException, FilmeSemEstoqueException {
 
@@ -36,6 +37,9 @@ public class LocacaoService {
 			}
 		}
 
+		if(spcService.possuiNegativacao(usuario)){
+			throw new LocadoraException("Usuário Negativado");
+		}
 
 		Locacao locacao = new Locacao();
 		locacao.setFilmes(filmes);
@@ -71,6 +75,10 @@ public class LocacaoService {
 
 	public void setLocacaoDAO(LocacaoDAO dao){
 		this.locacaoDAO = dao;
+	}
+
+	public void setSpcService(SPCService spc){
+		this.spcService = spc;
 	}
 
 }
