@@ -1,6 +1,7 @@
 package br.ce.wcaquino.servicos;
 
 import br.ce.wcaquino.builders.FilmeBuilder;
+import br.ce.wcaquino.builders.LocacaoBuilder;
 import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.daos.LocacaoDAO;
 import br.ce.wcaquino.daos.LocacaoDAOFake;
@@ -17,18 +18,21 @@ import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import static br.ce.wcaquino.matchers.MatchersProprios.*;
+import static org.mockito.Mockito.when;
 
 public class LocacaoServiceTest {
 
-    LocacaoService locacaoService;
-    LocacaoDAO locacaoDAO;
-    SPCService spcService;
+    private LocacaoService locacaoService;
+    private LocacaoDAO locacaoDAO;
+    private SPCService spcService;
+    private EmailService emailService;
 
 
     @Rule
@@ -44,6 +48,8 @@ public class LocacaoServiceTest {
         locacaoService.setLocacaoDAO(locacaoDAO);
         spcService = Mockito.mock(SPCService.class);
         locacaoService.setSpcService(spcService);
+        emailService = Mockito.mock(EmailService.class);
+        locacaoService.setEmailService(emailService);
     }
 
     @Test
@@ -143,13 +149,28 @@ public class LocacaoServiceTest {
         Usuario usuario = UsuarioBuilder.criandoUsuarioFake().agora();
         List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().agora());
 
-        Mockito.when(spcService.possuiNegativacao(usuario)).thenReturn(true);
+        when(spcService.possuiNegativacao(usuario)).thenReturn(true);
 
         exceptionExpected.expect(LocadoraException.class);
         exceptionExpected.expectMessage("Usuário Negativado");
 
         //acao
         locacaoService.alugarFilme(usuario,filmes);
+    }
+
+    @Test
+    public void deveEnviarEmailParaLocacoesAtrasadas(){
+        //cenario
+        Usuario usuario = UsuarioBuilder.criandoUsuarioFake().agora();
+        List<Locacao> locacoes = Arrays.asList(LocacaoBuilder.umLocacao()
+                .comUsuario(usuario)
+                .comDataRetorno(DataUtils.obterDataComDiferencaDias(-2))
+                .agora());
+        when(locacaoDAO.obterLocacoesPendentes()).thenReturn(locacoes);
+        //acao
+        locacaoService.notificarAtraso();
+        //verificacao
+        Mockito.verify(emailService).notificarAtraso(usuario);
     }
 
 }
