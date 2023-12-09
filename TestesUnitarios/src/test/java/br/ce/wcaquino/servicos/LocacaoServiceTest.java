@@ -16,8 +16,15 @@ import org.hamcrest.CoreMatchers;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -28,11 +35,18 @@ import java.util.List;
 import static br.ce.wcaquino.matchers.MatchersProprios.*;
 import static org.mockito.Mockito.when;
 
+@RunWith(PowerMockRunner.class)  //Power Mock prepare
+@PrepareForTest(LocacaoService.class)  //Power Mock prepare
+@PowerMockIgnore("jdk.internal.reflect.*")
 public class LocacaoServiceTest {
 
+    //@InjectMocks
     private LocacaoService locacaoService;
+    //@Mock
     private LocacaoDAO locacaoDAO;
+    //@Mock
     private SPCService spcService;
+    //@Mock
     private EmailService emailService;
 
 
@@ -58,6 +72,8 @@ public class LocacaoServiceTest {
         //cenario
         Usuario user = UsuarioBuilder.criandoUsuarioFake().agora();
         List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().filmeComValorLocacao(5.0).agora());
+
+        PowerMockito.whenNew(Date.class).withNoArguments().thenReturn(DataUtils.obterData(8, 12, 2023));
 
         //acao
         Locacao locacao = locacaoService.alugarFilme(user, filmes);
@@ -125,12 +141,14 @@ public class LocacaoServiceTest {
     }
 
     @Test
-    public void deveDevolverNaSegundaAoAlugarNoSabado() throws FilmeSemEstoqueException, LocadoraException {
-        Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY)); //Executara o teste apenas sabado
+    public void deveDevolverNaSegundaAoAlugarNoSabado() throws Exception {
+        //Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY)); //Executara o teste apenas sabado
 
         //cenario
         Usuario usuario = UsuarioBuilder.criandoUsuarioFake().agora();
         List<Filme> filmes = Arrays.asList(FilmeBuilder.criandoUmFilme().agora());
+
+        PowerMockito.whenNew(Date.class).withNoArguments().thenReturn(DataUtils.obterData(9, 12, 2023));
 
         //acao
         Locacao retorno = locacaoService.alugarFilme(usuario, filmes);
