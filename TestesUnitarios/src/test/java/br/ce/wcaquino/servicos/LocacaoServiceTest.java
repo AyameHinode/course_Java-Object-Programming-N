@@ -36,7 +36,7 @@ import static br.ce.wcaquino.matchers.MatchersProprios.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(PowerMockRunner.class)  //Power Mock prepare
-@PrepareForTest(LocacaoService.class)  //Power Mock prepare
+@PrepareForTest({LocacaoService.class, DataUtils.class})  //Power Mock prepare
 @PowerMockIgnore("jdk.internal.reflect.*")
 public class LocacaoServiceTest {
 
@@ -88,7 +88,12 @@ public class LocacaoServiceTest {
                         //DataUtils.obterDataComDiferencaDias(1)), CoreMatchers.is(true));
         errorCollector.checkThat(locacao.getDataRetorno(), hojeComDiferencaDias(1));
         errorCollector.checkThat(locacao.getDataLocacao(), hoje());
-
+        errorCollector.checkThat(DataUtils.isMesmaData(locacao.getDataRetorno(),
+                DataUtils.obterData(9,12,2023)),
+                CoreMatchers.is(true));
+        errorCollector.checkThat(DataUtils.isMesmaData(locacao.getDataLocacao(),
+                DataUtils.obterData(8,12,2023)),
+                CoreMatchers.is(true));
     }
 
     @Test (expected = FilmeSemEstoqueException.class)
@@ -160,6 +165,7 @@ public class LocacaoServiceTest {
 //        Assert.assertThat(retorno.getDataRetorno(), new DiaSemanaMatcher(Calendar.MONDAY));
 //        Assert.assertThat(retorno.getDataRetorno(), caiEm(Calendar.MONDAY));
         Assert.assertThat(retorno.getDataRetorno(), caiEmUmaSegunda());
+        PowerMockito.verifyNew(Date.class, Mockito.times(2)).withNoArguments();
     }
 
     @Test
