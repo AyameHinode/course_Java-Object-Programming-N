@@ -10,6 +10,7 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import br.ce.wcaquino.runners.ParallelRunner;
 import br.ce.wcaquino.utils.DataUtils;
 
 import org.hamcrest.CoreMatchers;
@@ -34,6 +35,7 @@ import java.util.List;
 import static br.ce.wcaquino.matchers.MatchersProprios.*;
 import static org.mockito.Mockito.when;
 
+@RunWith(ParallelRunner.class)
 public class LocacaoServiceTest {
 
     @InjectMocks
@@ -56,6 +58,11 @@ public class LocacaoServiceTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
+        System.out.println("Iniciando 2 ....");
+    }
+    @After
+    public void tearDown(){
+        System.out.println("Finalizando 2....");
     }
 
     @Test
