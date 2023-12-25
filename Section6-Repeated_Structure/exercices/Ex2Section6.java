@@ -26,6 +26,8 @@ public class Ex2Section6 {
             y = entrada.nextInt();
         }
 
+        entrada.close();
+
     }
 
 }

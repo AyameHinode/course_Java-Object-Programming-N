@@ -17,6 +17,8 @@ public class Ex1Section6 {
 
         System.out.println("Acesso permitido");
 
+        entrada.close();
+
     }
 
 }

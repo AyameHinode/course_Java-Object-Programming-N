@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="RunManager">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ce7496bb-6a29-4ddb-8fc0-a10d61d0a520" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/exercices/Ex3Section6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercices/Ex1Section6.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercices/Ex1Section6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercices/Ex2Section6.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercices/Ex2Section6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/exercices/Ex1Section6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/exercices/Ex1Section6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/exercices/Ex2Section6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/exercices/Ex2Section6.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ZzzGFV895VgT91wqgVqE0Cli0Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Ex3Section6">
     <configuration name="Ex2Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="exercices.Ex2Section6" />
       <module name="Section6-Repeated_Structure" />
@@ -14,10 +58,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Ex3Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercices.Ex3Section6" />
+      <module name="Section6-Repeated_Structure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exercices.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ex3Section6" />
         <item itemvalue="Application.Ex2Section6" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce7496bb-6a29-4ddb-8fc0-a10d61d0a520" name="Changes" comment="" />
+      <created>1703439600662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703439600662</updated>
+    </task>
+    <servers />
   </component>
 </project>
