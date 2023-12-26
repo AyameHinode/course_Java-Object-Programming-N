@@ -9,8 +9,10 @@ public class AboutWhile {
         Scanner entrada = new Scanner(System.in);
 
         int teste = entrada.nextInt();
+        int soma = 0;
 
         while (teste != 0){
+            soma = soma + teste;
             teste = entrada.nextInt();
         }
 
