@@ -3,27 +3,24 @@ package exercices;
 import java.util.Scanner;
 
 public class Ex7Section6 {
+//Calculando fatorial
+    public static void main(String ... args){
 
-    public static void main (String[] args){
+        Scanner entrada = new Scanner(System.in);
 
-        Scanner leitor = new Scanner(System.in);
+        int numero = entrada.nextInt();
 
-        int pares = leitor.nextInt();
-        double numerador, denominador, resultado;
-
-        for(int i = 0; i<pares; i++){
-            numerador = leitor.nextDouble();
-            denominador = leitor.nextDouble();
-            if (denominador != 0){
-                resultado = numerador/denominador;
-                System.out.println(resultado);
-            } else {
-                System.out.println("Divisão impossivel");
+        if(numero != 0){
+            for(int i=numero-1; i>=1; i--){
+                numero = numero * i;
             }
+        } else {
+            numero = 0;
         }
 
-        leitor.close();
+        System.out.println(numero);
 
+        entrada.close();
     }
 
 }
