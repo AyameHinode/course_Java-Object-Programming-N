@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce7496bb-6a29-4ddb-8fc0-a10d61d0a520" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/exercices/Ex7Section6.java" afterDir="false" />
-<<<<<<< HEAD
-=======
+    <list default="true" id="04ca4020-0d7f-42f5-8d16-9dcdf83ba9de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/exercices/Ex9Section6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
->>>>>>> 970fc26f0436dacb8e758c0768d9a5e9c900a78e
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/exercices/Ex7Section6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Section6-Repeated_Structure/exercices/Ex7Section6.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,77 +26,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2ZzzGFV895VgT91wqgVqE0Cli0Y" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2aSOznAJS9bu83B5YDCyhuX1OBe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
   }
-}</component>
-  <component name="RunManager" selected="Application.Ex7Section6">
-    <configuration name="Ex3Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercices.Ex3Section6" />
-      <module name="Section6-Repeated_Structure" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercices.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ex4Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercices.Ex4Section6" />
-      <module name="Section6-Repeated_Structure" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercices.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ex5Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercices.Ex5Section6" />
-      <module name="Section6-Repeated_Structure" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercices.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ex6Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercices.Ex6Section6" />
-      <module name="Section6-Repeated_Structure" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercices.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Ex7Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercices.Ex7Section6" />
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Ex9Section6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercices.Ex9Section6" />
       <module name="Section6-Repeated_Structure" />
       <extension name="coverage">
         <pattern>
@@ -111,22 +58,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Ex7Section6" />
-        <item itemvalue="Application.Ex6Section6" />
-        <item itemvalue="Application.Ex5Section6" />
-        <item itemvalue="Application.Ex4Section6" />
-        <item itemvalue="Application.Ex3Section6" />
+        <item itemvalue="Application.Ex9Section6" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce7496bb-6a29-4ddb-8fc0-a10d61d0a520" name="Changes" comment="" />
-      <created>1703439600662</created>
+      <changelist id="04ca4020-0d7f-42f5-8d16-9dcdf83ba9de" name="Changes" comment="" />
+      <created>1704308780522</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1703439600662</updated>
+      <updated>1704308780522</updated>
     </task>
     <servers />
   </component>
