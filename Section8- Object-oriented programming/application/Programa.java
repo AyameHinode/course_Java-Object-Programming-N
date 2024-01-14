@@ -1,36 +1,41 @@
 package application;
 
+import entities.Triangulo;
+
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Programa {
 
-    public static void main(String ... args){
+    public static void main(String... args) {
 
         Locale.setDefault(Locale.US);
         Scanner leitor = new Scanner(System.in);
-        double xA, xB, xC, yA, yB, yC;
+
+        Triangulo x, y;
+        x = new Triangulo();
+        y = new Triangulo();
 
         System.out.println("Entre com as medidas do triangulo X: ");
-        xA = leitor.nextDouble();
-        xB = leitor.nextDouble();
-        xC = leitor.nextDouble();
+        x.a = leitor.nextDouble();
+        x.b = leitor.nextDouble();
+        x.c = leitor.nextDouble();
 
         System.out.println("Entre com as medidas do triangulo Y: ");
-        yA = leitor.nextDouble();
-        yB = leitor.nextDouble();
-        yC = leitor.nextDouble();
+        y.a = leitor.nextDouble();
+        y.b = leitor.nextDouble();
+        y.c = leitor.nextDouble();
 
-        double p = (xA + xB + xC) / 2.0;
-        double areaX = Math.sqrt(p * (p - xA) * (p - xB) * (p - xC));
+        double p = (x.a + x.b + x.c) / 2.0;
+        double areaX = Math.sqrt(p * (p - x.a) * (p - x.b) * (p - x.c));
 
-        p = (yA + yB + yC) / 2.0;
-        double areaY = Math.sqrt(p * (p - yA) * (p - yB) * (p - yC));
+        p = (y.a + y.b + y.c) / 2.0;
+        double areaY = Math.sqrt(p * (p - y.a) * (p - y.b) * (p - y.c));
 
         System.out.printf("Area do Triangulo X: %.4f%n", areaX);
         System.out.printf("Area do Triangulo Y: %.4f%n", areaY);
 
-        if (areaX > areaY){
+        if (areaX > areaY) {
             System.out.println("Maior area: X");
         } else {
             System.out.println("Maior area: Y");
@@ -39,5 +44,4 @@ public class Programa {
         leitor.close();
 
     }
-
 }
